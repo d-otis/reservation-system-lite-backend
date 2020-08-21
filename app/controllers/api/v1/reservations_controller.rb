@@ -12,7 +12,13 @@ class Api::V1::ReservationsController < ApplicationController
   end
 
   def create
-    binding.pry
+    reservation = Reservation.new(reservation_params)
+
+    if reservation.save
+      render json: ReservationSerializer.new(reservation, options).serialized_json
+    else
+      render json: {message: 'unable to save reservation'}
+    end
   end
 
   def update
