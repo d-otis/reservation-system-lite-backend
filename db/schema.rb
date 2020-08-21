@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_20_195750) do
+ActiveRecord::Schema.define(version: 2020_08_21_162110) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,19 @@ ActiveRecord::Schema.define(version: 2020_08_20_195750) do
     t.text "description"
     t.string "serial_number"
     t.boolean "is_available"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "reservation_items", force: :cascade do |t|
+    t.integer "reservation_id"
+    t.integer "item_id"
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.text "notes"
+    t.boolean "in_progress"
+    t.boolean "is_complete"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
