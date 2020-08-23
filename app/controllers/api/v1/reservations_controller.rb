@@ -1,6 +1,6 @@
 class Api::V1::ReservationsController < ApplicationController
   def index
-    reservations = Reservation.all
+    reservations = Reservation.order(created_at: :desc)
 
     render json: ReservationSerializer.new(reservations, options).serialized_json
   end
