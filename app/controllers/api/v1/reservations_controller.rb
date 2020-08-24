@@ -23,7 +23,7 @@ class Api::V1::ReservationsController < ApplicationController
 
   def update
     reservation = Reservation.find_by(id: params[:id])
-
+    
     if reservation.update(reservation_params)
       render json: {message: "Reservation successfully updated"}
     else
