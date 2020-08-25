@@ -7,8 +7,11 @@ class Api::V1::ReservationsController < ApplicationController
 
   def show
     reservation = Reservation.find_by(id: params[:id])
-
-    render json: ReservationSerializer.new(reservation, options).serialized_json
+    if reservation
+      render json: ReservationSerializer.new(reservation, options).serialized_json
+    else
+      render json: {message: "Reservation not found."}
+    end
   end
 
   def create
@@ -23,7 +26,7 @@ class Api::V1::ReservationsController < ApplicationController
 
   def update
     reservation = Reservation.find_by(id: params[:id])
-    
+
     if reservation.update(reservation_params)
       render json: {message: "Reservation successfully updated"}
     else
