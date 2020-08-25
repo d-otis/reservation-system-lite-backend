@@ -1,4 +1,5 @@
 class Api::V1::ReservationsController < ApplicationController
+  before_action :set_reservation, only: [:show, :update, :destroy]
   def index
     reservations = Reservation.order(created_at: :desc)
 
@@ -6,9 +7,9 @@ class Api::V1::ReservationsController < ApplicationController
   end
 
   def show
-    reservation = Reservation.find_by(id: params[:id])
-    if reservation
-      render json: ReservationSerializer.new(reservation, options).serialized_json
+    # reservation = Reservation.find_by(id: params[:id])
+    if @reservation
+      render json: ReservationSerializer.new(@reservation, options).serialized_json
     else
       render json: {message: "Reservation not found."}
     end
@@ -25,9 +26,7 @@ class Api::V1::ReservationsController < ApplicationController
   end
 
   def update
-    reservation = Reservation.find_by(id: params[:id])
-
-    if reservation.update(reservation_params)
+    if @reservation.update(reservation_params)
       render json: {message: "Reservation successfully updated"}
     else
       render json: {message: "Unable to Update"}
@@ -52,5 +51,9 @@ class Api::V1::ReservationsController < ApplicationController
     options = {
       include: [:items]
     }
+  end
+
+  def set_reservation
+    @reservation = Reservation.find_by(id: params[:id])
   end
 end
