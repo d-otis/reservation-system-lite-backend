@@ -1,15 +1,15 @@
 Item.destroy_all
 Reservation.destroy_all
 
-num_items = 5
-num_res = 5
+num_items = 20
+num_res = 15
 
 num_items.times do
   Item.create(
     title: Faker::Appliance.brand.upcase + " — " + Faker::Appliance.equipment,
     description: Faker::Lorem.paragraph(sentence_count: 5),
     serial_number: Faker::Device.serial,
-    is_available: Faker::Boolean.boolean
+    is_available: true
   )
 end
 
@@ -29,7 +29,7 @@ Reservation.all.each do |r|
       title: Faker::Appliance.brand.upcase + " — " + Faker::Appliance.equipment,
       description: Faker::Lorem.paragraph(sentence_count: 5),
       serial_number: Faker::Device.serial,
-      is_available: Faker::Boolean.boolean
+      is_available: false
     )
     items << i
   end
