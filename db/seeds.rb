@@ -7,7 +7,8 @@ num_res = 15
 num_items.times do
   Item.create(
     title: Faker::Appliance.brand.upcase + " — " + Faker::Appliance.equipment,
-    description: Faker::Lorem.paragraph(sentence_count: 5)
+    description: Faker::Lorem.paragraph(sentence_count: 5),
+    serial_number: Faker::Device.serial
   )
 end
 
