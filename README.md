@@ -1,24 +1,15 @@
-# README
+# Reservation System Lite - Front End
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+I was recently asked by a friend what it would take to make an equipment reservation system for their art gallery. The gears started turning and I wanted to take part of that domain as inspiration for my Rails and Javascript Final Project.
 
-Things you may want to cover:
+[Front End](https://github.com/d-otis/reservation-system-lite-frontend)
 
-* Ruby version
+[Back End](https://github.com/d-otis/reservation-system-lite-backend)
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Installation Instructions
+1. ```git clone``` both frontend and backend repos onto your system
+1. ```cd``` into the ```reservation-system-lite-backend``` directory
+1. ```bundle install``` from the command line to install the necessary gems 
+1. ```rails db:create``` then ```rails db:migrate``` to create and migrate your Postgresql database respectively
+1. ```rails s``` to start the server
+1. visit the ```index.html``` to view, create, update, or delete a reservation
