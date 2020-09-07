@@ -1,4 +1,4 @@
-# Reservation System Lite - Front End
+# Reservation System Lite - Back End
 
 I was recently asked by a friend what it would take to make an equipment reservation system for their art gallery. The gears started turning and I wanted to take part of that domain as inspiration for my Rails and Javascript Final Project.
 
