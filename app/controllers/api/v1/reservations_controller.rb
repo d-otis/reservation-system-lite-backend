@@ -44,8 +44,6 @@ class Api::V1::ReservationsController < ApplicationController
   def reservation_params
     params.require(:reservation).permit(
       :notes,
-      :is_complete,
-      :in_progress,
       :item_ids => []
     )
   end
