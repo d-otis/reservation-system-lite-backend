@@ -2,7 +2,7 @@ Item.destroy_all
 Reservation.destroy_all
 
 num_items = 10
-num_res = 15
+num_res = 7
 
 num_items.times do
   Item.create(
@@ -19,7 +19,7 @@ num_res.times do
 end
 
 Reservation.all.each do |r|
-  random_number = rand(2..5)
+  random_number = rand(1..4)
   items = []
   random_number.times do
     i = Item.create(
