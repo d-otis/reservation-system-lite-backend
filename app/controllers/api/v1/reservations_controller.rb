@@ -1,6 +1,6 @@
 class Api::V1::ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :update, :destroy]
-  
+
   def index
     reservations = Reservation.order(created_at: :desc)
 
@@ -8,7 +8,6 @@ class Api::V1::ReservationsController < ApplicationController
   end
 
   def show
-    # reservation = Reservation.find_by(id: params[:id])
     if @reservation
       render json: ReservationSerializer.new(@reservation, options).serialized_json
     else
