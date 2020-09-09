@@ -57,4 +57,5 @@ class Api::V1::ReservationsController < ApplicationController
   def set_reservation
     @reservation = Reservation.find_by(id: params[:id])
   end
+
 end
